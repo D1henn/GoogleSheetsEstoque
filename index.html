@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <base target="_top">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <?!= include('Styles'); ?>
+</head>
+<body>
+  <div class="main-wrapper">
+    <header class="page-header">
+      <div id="logo-container">
+        <img src="data:image/png;base64,iVBORw..." alt="Logo da Empresa">
+      </div>
+      <div class="header-controls">
+        <div class="user-info">Usuário: Solicitante (<?= userEmail ?>)</div>
+        <button id="theme-toggle-btn" title="Alterar tema">
+          <span id="moon-icon">☀️</span><span id="sun-icon">🌙</span>
+        </button>
+      </div>
+    </header>
+
+    <div class="card">
+      <h2>Nova Solicitação</h2>
+      <form id="solicitacaoForm" onsubmit="return false;">
+        <div class="form-grid">
+          <div class="full-width">
+            <label for="nomeSolicitante">Nome do Solicitante <span style="color:#ff4757;">*</span></label>
+            <input type="text" id="nomeSolicitante" required>
+          </div>
+          <div id="itemEstoqueContainer">
+            <label for="item">Item (do Estoque)</label>
+            <select id="item"><option value="" disabled selected>Carregando...</option></select>
+          </div>
+          <div id="itemTextoContainer" style="display:none">
+            <label for="itemTexto">Item (Fora de Estoque)</label>
+            <input type="text" id="itemTexto" placeholder="Digite o nome do item">
+          </div>
+          <div>
+            <label for="quantidade">Quantidade</label>
+            <input type="number" id="quantidade" min="1" value="1">
+          </div>
+          <button type="button" id="addItemBtn" class="btn btn-primary">Adicionar</button>
+          <div class="full-width checkbox-container">
+            <input type="checkbox" id="foraDeEstoqueCheckbox">
+            <label for="foraDeEstoqueCheckbox">Adicionar item por texto</label>
+          </div>
+        </div>
+      </form>
+    </div>
+
+    <div class="card">
+      <h2>Itens no Pedido Atual</h2>
+      <div class="table-responsive">
+        <table>
+          <thead><tr><th>Item</th><th>Qtd.</th><th class="action-column">Ação</th></tr></thead>
+          <tbody id="pedidoAtualTbody">
+            <tr><td colspan="3" style="text-align:center">Nenhum item adicionado.</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="action-buttons">
+        <button type="button" id="submitBtn" class="btn btn-primary" disabled>Enviar Solicitação</button>
+        <button type="button" id="clearBtn" class="btn btn-secondary">Limpar Pedido</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Minhas Solicitações Anteriores</h2>
+      <div class="table-responsive">
+        <table>
+          <thead><tr><th>Data</th><th>Solicitante</th><th>Itens</th><th>Status</th><th class="action-column">Ação</th></tr></thead>
+          <tbody id="historicoTbody">
+            <tr><td colspan="5" style="text-align:center;">Carregando histórico...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <footer class="page-footer">
+      © 2025 Diego Pereira. Todos os direitos reservados.<br>
+      Contato: <a href="mailto:diegohenriquepes@gmail.com">diegohenriquepes@gmail.com</a>
+    </footer>
+  </div>
+
+  <div id="print-area"></div>
+  <div id="toast-container"></div>
+
+  <?!= include('Scripts'); ?>
+</body>
+</html>
