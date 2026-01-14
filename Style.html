@@ -1,0 +1,22 @@
+<style>
+  :root {
+    --bg-primary: #10141A; --bg-secondary: #1A1F27; --bg-tertiary: #232A35;
+    --border-color: rgba(255, 255, 255, 0.08); --text-primary: #EAECEF; --text-secondary: #8C96A8;
+    --accent-primary: #38BDF8; --accent-secondary: #A78BFA; --accent-glow: rgba(56, 189, 248, 0.4);
+    --danger-color: #ff8e96; --danger-bg: #552528; --warning-bg: #4a3822; --warning-color: #ffc96f;
+    --success-bg: #1e4533; --success-color: #6ee7b7; --shadow-color: rgba(0, 0, 0, 0.3);
+  }
+  .light-theme {
+    --bg-primary: #f0f2f5; --bg-secondary: #ffffff; --bg-tertiary: #f0f2f5;
+    --border-color: #dddfe2; --text-primary: #1c1e21; --text-secondary: #606770;
+    --danger-color: #d93025; --danger-bg: #fbe9e7; --warning-bg: #fff0c2;
+    --warning-color: #7d5902; --success-bg: #c8e6c9; --success-color: #256029;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+  }
+  /* ... restante do seu CSS aqui ... */
+  @media (max-width: 768px) {
+    body { padding: 10px; } .main-wrapper { padding: 0; } .page-header { flex-direction: column; gap: 15px; }
+    .card { padding: 20px; border-radius: 0; }
+    .form-grid { grid-template-columns: 1fr; gap: 20px; }
+  }
+</style>
